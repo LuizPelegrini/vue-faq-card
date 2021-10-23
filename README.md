@@ -1,4 +1,4 @@
-# gerenciamento-vuex-desafio
+# Vue FAQ Card
 
 ## Project setup
 ```
