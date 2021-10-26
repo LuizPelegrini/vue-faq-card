@@ -1,6 +1,19 @@
 <template>
-  <h1>Categories</h1>
-  <ListButton text="Hello" />
+  <div class="container">
+    <img src="@/assets/images/astronaut.svg" alt="astronaut on the moon" />
+    <h1>F.A.Q</h1>
+    <p>Choose a category</p>
+    <ListButton icon="rocket" @click="handleClick(1)">Basecamp</ListButton>
+    <ListButton icon="astronaut-helmet" @click="handleClick(2)">
+      Bootcamp
+    </ListButton>
+    <ListButton icon="student-hat" @click="handleClick(3)">
+      Cataline
+    </ListButton>
+    <ListButton icon="partnership" @click="handleClick(4)">
+      Partnerships
+    </ListButton>
+  </div>
 </template>
 
 <script>
@@ -15,12 +28,19 @@ export default {
     ListButton,
   },
 
-  methods: mapActions(["changeComponent"]),
+  methods: {
+    ...mapActions(["changeComponent", "changeSession"]),
+
+    handleClick(id) {
+      this.changeComponent("Questions");
+      this.changeSession(id);
+    },
+  },
 };
 </script>
 
 <style scoped>
-h1 {
-  color: #f5f6f8;
+.container {
+  padding: 0.5rem;
 }
 </style>

@@ -1,40 +1,56 @@
 <template>
-  <button type="button" class="container">
-    <img class="button__icon" src="../assets/images/rocket.svg" alt="icon" />
-    <span class="button__text">{{ text }}</span>
+  <button type="button" class="button__container">
+    <img
+      v-if="icon !== ''"
+      class="button__icon"
+      :src="require(`@/assets/images/${icon}.svg`)"
+      :alt="icon"
+    />
+
+    <div class="button__text">
+      <slot>No Name</slot>
+    </div>
   </button>
 </template>
 
 <script>
 export default {
   name: "ListButton",
+
   props: {
-    text: {
+    icon: {
       type: String,
-      required: true,
+      default: "",
     },
   },
 };
 </script>
 
 <style scoped>
-.container {
+.button__container {
   width: 100%;
-  height: 3rem;
+  height: 4rem;
   border: none;
   background: none;
   cursor: pointer;
+  padding: 1rem 0;
 
   display: flex;
   align-items: center;
+
+  transition: background-color 0.2s ease;
+}
+
+.button__container:hover {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .button__icon {
   width: 2rem;
-  margin-right: 6px;
+  margin: 0 2rem;
 }
 
 .button__text {
-  color: #f5f6f8;
+  font-size: 1rem;
 }
 </style>
