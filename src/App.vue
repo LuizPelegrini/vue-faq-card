@@ -39,6 +39,7 @@ export default {
 .content {
   width: 400px;
   height: 600px;
+  padding: 1.5rem 1rem;
 
   border-radius: 1rem;
   box-shadow: 0 5px 20px rgba(63, 68, 82, 0.4);

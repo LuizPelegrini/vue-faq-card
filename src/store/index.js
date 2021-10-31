@@ -51,20 +51,20 @@ export default createStore({
       return state.componentName;
     },
 
-    $questionsFromActiveSession(state) {
+    $activeSession(state) {
       const category = state.categories.find(
         (category) => category.id === state.sessionId
       );
 
-      return category.questions;
+      return category;
     },
 
-    $answerFromActiveQuestion(state, getters) {
-      const question = getters.$questionsFromActiveSession.find(
+    $activeQuestion(state, getters) {
+      const question = getters.$activeSession.questions.find(
         (question) => question.id === state.activeQuestionId
       );
 
-      return question.content;
+      return question;
     },
   },
 });
