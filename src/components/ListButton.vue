@@ -33,7 +33,8 @@ export default {
   border: none;
   background: none;
   cursor: pointer;
-  padding: 1rem 0;
+  padding: 1rem 0 1rem 2rem;
+  border-radius: 6px;
 
   display: flex;
   align-items: center;
@@ -46,11 +47,12 @@ export default {
 }
 
 .button__icon {
-  width: 2rem;
-  margin: 0 2rem;
+  width: 30px;
+  margin-right: 2rem;
 }
 
 .button__text {
-  font-size: 1rem;
+  font-size: 1.1rem;
+  text-align: start;
 }
 </style>
