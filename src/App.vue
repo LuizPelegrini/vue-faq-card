@@ -1,7 +1,9 @@
 <template>
   <div class="page">
     <main class="content">
-      <component :is="$activeComponentName" />
+      <transition name="fade">
+        <component :is="$activeComponentName" />
+      </transition>
     </main>
   </div>
 </template>
@@ -44,5 +46,13 @@ export default {
   border-radius: 1rem;
   box-shadow: 0 5px 20px rgba(63, 68, 82, 0.4);
   background: linear-gradient(#404451, #26282c);
+}
+
+.fade-enter-from {
+  opacity: 0;
+  transform: translateX(-10%);
+}
+.fade-enter-active {
+  transition: opacity 0.8s, transform 0.5s;
 }
 </style>
