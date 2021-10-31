@@ -7,8 +7,8 @@ Vue concepts used
 - [Transitions](https://vuejs.org/v2/guide/transitions.html)
 - [Slots](https://vuejs.org/v2/guide/components-slots.html)
 
-Demo
-![](https://github.com/LuizPelegrini/vue-faq-card/recording.gif)
+## Demo
+![](./recording.gif)
 
 ## Project setup
 ```
