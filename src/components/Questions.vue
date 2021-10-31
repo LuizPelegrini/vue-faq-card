@@ -3,13 +3,14 @@
   <ListButton
     v-for="question in $questionsFromActiveSession"
     :key="question.id"
+    @click="handleClick(question.id)"
   >
     {{ question.title }}
   </ListButton>
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 import ListButton from "@/components/ListButton.vue";
 
 export default {
@@ -18,5 +19,14 @@ export default {
   components: { ListButton },
 
   computed: mapGetters(["$questionsFromActiveSession"]),
+
+  methods: {
+    ...mapActions(["changeComponent", "changeQuestion"]),
+
+    handleClick(id) {
+      this.changeComponent("Answer");
+      this.changeQuestion(id);
+    },
+  },
 };
 </script>

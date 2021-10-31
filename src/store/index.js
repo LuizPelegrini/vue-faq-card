@@ -6,6 +6,7 @@ export default createStore({
     componentName: "Categories",
     sessionId: null,
     categories: faq.faqCategories,
+    activeQuestionId: null,
   },
 
   mutations: {
@@ -15,6 +16,10 @@ export default createStore({
 
     SET_SESSION(state, id) {
       state.sessionId = id;
+    },
+
+    SET_QUESTION(state, id) {
+      state.activeQuestionId = id;
     },
   },
 
@@ -32,6 +37,13 @@ export default createStore({
       // TODO: verify whether the session exists...
       commit("SET_SESSION", id);
     },
+
+    changeQuestion({ commit }, payload) {
+      const id = payload;
+
+      // TODO: verify whether the question exists...
+      commit("SET_QUESTION", id);
+    },
   },
 
   getters: {
@@ -45,6 +57,14 @@ export default createStore({
       );
 
       return category.questions;
+    },
+
+    $answerFromActiveQuestion(state, getters) {
+      const question = getters.$questionsFromActiveSession.find(
+        (question) => question.id === state.activeQuestionId
+      );
+
+      return question.content;
     },
   },
 });

@@ -9,6 +9,7 @@
 <script>
 import Categories from "./components/Categories.vue";
 import Questions from "./components/Questions.vue";
+import Answer from "./components/Answer.vue";
 
 import { mapGetters } from "vuex";
 
@@ -16,6 +17,7 @@ export default {
   components: {
     Categories,
     Questions,
+    Answer,
   },
 
   computed: mapGetters(["$activeComponentName"]),
